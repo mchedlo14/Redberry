@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa&family=DM+Sans&family=Mochiy+Pop+One&family=Montserrat&family=Nunito&family=Oswald:wght@300;400&family=Roboto&family=Varela+Round&display=swap');
+.started-page{
+    width: 100%;
+    background-color: red;
+    display: flex;
+}
+.getstarted-image-container{
+    width: 50%;
+    background-color: yellow;
+    display: flex;
+    flex-direction: column;
+}
+.who-we-are-container{
+    width: 50%;
+    background-color: #FD5334;
+
+}
+.queen-image{
+    width: 14px;
+    height: 18px;
+}
+.get-started-container{
+    width: 565px;
+    height: 400px;
+    margin: 256px 0px 0px 70px;
+}
+.get-started-container span{
+    color: #212529;
+    font-size: 20px;
+    font-family: 'Nunito', sans-serif;
+}
+.get-started-container h2{
+    color: #FFFFFF;
+    font-size: 60px;
+    text-align: start;
+}
+.getstarted-btn{
+    width: 190px;
+    height: 50px;
+    background-color: #212529;
+    border: 0;
+    border-radius: 8px;
+    color: white;
+    margin-top: 102px;
+    cursor: pointer;
+    font-size: 18px;
+    font-family: 'Nunito', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+.getstarted-btn:hover{
+    background-color: #33383d;
+    transition: 0.2s;
+}
+.right-arrow{
+    width: 24px;
+    height: 24px;
+}

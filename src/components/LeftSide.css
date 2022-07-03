@@ -1,0 +1,31 @@
+.left-side{
+    width: 50%;
+}
+.image{
+    width: 100%;
+}
+.image-container{
+    position: relative;
+}
+.text-container{
+    position: absolute;
+    top: 250px;
+    left: 130px;
+}
+.image-text{
+    color: #212529;
+    font-family: 'Nunito';
+    font-style: italic;
+    font-weight: 800;
+    font-size: 26px;
+    line-height: 35px;
+}
+.author{
+    color: #E5E6E8;
+    font-family: 'Nunito';
+    font-style: italic;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 33px;
+    padding-top: 24px;
+}

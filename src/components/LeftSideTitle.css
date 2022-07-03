@@ -1,0 +1,16 @@
+.title-container{
+    width: 100%;
+    background-color: #7025FB;
+    height: 84px;
+    display: flex;
+    align-items: center;
+    padding: 0px 0px 0px 30px ;
+    gap: 8px;
+    font-family: 'Nunito', sans-serif;
+    color: #FFFFFF;
+    font-size: 14px;
+}
+.queen-image{
+    width: 14px;
+    height: 18px;
+}

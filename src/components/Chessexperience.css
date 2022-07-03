@@ -1,0 +1,28 @@
+.chess-experience{
+    width: 100%;
+    display: flex;
+}
+.chess-experience-image{
+    width: 100%;
+    height: 921px;
+}
+
+.chess-experience-image-container{
+    width: 50%;
+}
+.chess-experience-right-side{
+    width: 50%;
+    background-color: whitesmoke;
+}
+.select{
+    width: 40%;
+    height: 46px;
+    margin-left: 48px;
+    margin-top: 95px;
+}
+.chees-buttons-container{
+    display: flex;
+    justify-content: space-between;
+    padding: 46px;
+    margin-top: 200px;
+}

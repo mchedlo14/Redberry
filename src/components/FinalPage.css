@@ -1,0 +1,26 @@
+.final-page{
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+.final-left-side{
+    width: 50%;
+}
+.final-right-side{
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.final-image{
+    width: 100%;
+}
+.final-text{
+    color: #000000;
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 800;
+    font-size: 36px;
+    line-height: 150%;
+}
