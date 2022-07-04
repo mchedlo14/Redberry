@@ -26,3 +26,25 @@
     padding: 46px;
     margin-top: 200px;
 }
+
+.dropdown{
+    width: 390px;
+
+}
+.img-wrapper{
+    width: 100px;
+    height: 72px;
+}
+.img-wrapper img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.dropdown-option{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: unset;
+    position: unset;
+    margin: unset;
+}

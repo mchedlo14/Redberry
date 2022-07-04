@@ -68,6 +68,8 @@ span{
     height: 40px;
     display: flex;
     justify-content: space-between;
+    margin-left: 48px;
+    margin-top: 85px;
 }
 .back-btn{
     width: 93px;
