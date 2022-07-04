@@ -5,6 +5,7 @@
 .personal-form{
     background-color: whitesmoke;
     width: 50%;
+    position: relative;
 }
 .form-title{
     margin-top: 115px;
@@ -97,4 +98,12 @@ span{
     font-size: 20px;
     gap: 10px;
     cursor: pointer;
+}
+.error-container{
+    width: 350px;
+    height: 87px;
+    position: absolute;
+    z-index: 1;
+    left: 50%;
+    margin-top: 10px;
 }

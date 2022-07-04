@@ -96,9 +96,9 @@ const PersonalInformation = ({counter,setcounter}) => {
           <h2>Personal infromation</h2>
           <p>This is basic informaton fields</p>
         </div>
-        <>
+        <div className='error-container'>
           {errData.map((item,key) => <ErrorsComp title={item.title} description={item.description} key={key}/>)}
-        </>
+        </div>
         <form>
           <div>
             <label>
