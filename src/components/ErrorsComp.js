@@ -4,8 +4,13 @@ const ErrorsComp = ({title,description}) => {
   return (
     <div className='error-wrapper'>
         <div className='error-title-container'>
-          <i className="fas fa-exclamation-circle"></i>
-          <p>{title}</p>
+          <div className='error-title-wrapper'>
+            <i className="fas fa-exclamation-circle"></i>
+            <p>{title}</p>
+          </div>
+          <div>
+            <i className="fas fa-times"></i>
+          </div>
         </div>
         <div className='error-description-container'>
           <p>{description}</p>
