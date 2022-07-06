@@ -45,7 +45,14 @@ form div{
     border-radius: 4px;
     background-color: white;
     box-shadow: inset 0px -1px 0px rgba(0, 0, 0, 0.125);
-    text-align: center;
+    padding-left: 16px;
+    padding-left: 16px;
+}
+.input:active{
+    background-color: #E9ECEF;
+}
+.input:hover{
+    background-color: #F8F9FA;
 }
 
 .input:focus{
@@ -60,6 +67,14 @@ label{
     font-weight: 400;
     font-size: 20px;
     line-height: 150%;
+}
+.valid-icon{
+    position: absolute;
+    right: 20px;
+    top: 15px;
+}
+.valid-icon-none{
+    display: none;
 }
 span{
     color: red;
@@ -86,6 +101,10 @@ span{
     border: 1px solid #212529;
     border-radius: 8px;
 }
+.back-btn:hover{
+    border: 1px solid #C2A5F9;
+    background-color: #eae7ee;
+}
 .next-btn{
     width: 128px;
     height: 53px;
@@ -104,6 +123,7 @@ span{
     height: 87px;
     position: absolute;
     z-index: 1;
-    left: 50%;
+    left: 48%;
+    top: 0px;
     margin-top: 10px;
 }

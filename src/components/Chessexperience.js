@@ -28,7 +28,6 @@ const Chessexperience = ({counter,setcounter}) => {
     .then(res => setData(res.data))
   },[])
 
-
   return (
     <form className="chess-experience">
       <div className="chess-experience-image-container">
@@ -52,16 +51,24 @@ const Chessexperience = ({counter,setcounter}) => {
           </select>
 
 
-          <div className='dropdown'>
+          {/* <div className='dropdown'>
             {data.map(item =><div className='dropdown-option'>
               <p>{item.name}</p>
               <div className='img-wrapper'>
                 <img src={`https://chess-tournament-api.devtest.ge${item.image}`}/>
               </div>
             </div>)}
-          </div>
-    
+          </div> */}
+
         </div>
+
+        <div className='radio-button-container'>
+          <p className='radio-button-title'>Have you participated in the Redberry Championship? *</p>
+          <div className='radio-button-wrapper'>
+            <input type="radio" value={true} name="participated"/> Yes
+            <input type="radio" value={false} name="participated"/> No
+          </div>
+      </div>
 
         <div className='chees-buttons-container'>
           <button className='back-btn' onClick={() => setcounter(counter - 1)}>Back</button>

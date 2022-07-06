@@ -1,6 +1,8 @@
 .chess-experience{
     width: 100%;
     display: flex;
+    margin-left: 0;
+    margin-top: -20px;
 }
 .chess-experience-image{
     width: 100%;
@@ -47,4 +49,20 @@
     width: unset;
     position: unset;
     margin: unset;
+}
+.radio-button-title{
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 150%;
+    color: #212529;
+}
+.radio-button-container{
+    margin-left: 48px;
+}
+.radio-button-wrapper{
+    margin-top: 10px;
+    display: flex;
+    gap: 10px;
 }

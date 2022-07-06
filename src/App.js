@@ -7,10 +7,10 @@ import FinalPage from './components/FinalPage';
 
 
 function App() {
-  const [counter,setCounter] = useState(0)
+  const [counter,setCounter] = useState(2)
 
   return (
-    <div className="App">
+    <div>
 
       {counter === 0 ? (<GetStarted counter={counter} setcounter={setCounter}/>)
       :
