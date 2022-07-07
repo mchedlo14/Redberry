@@ -15,15 +15,27 @@
 }
 
 .route-container{
-    width: 366px;
+    width: 388px;
     height: 65px;
     margin-top: 60px;
-    margin-left: 48px;
+    margin-left: 50px;
     display: flex;
     justify-content: space-around;
     align-items: center;
+    flex-direction: column;
 }
-.square{
+.first-square{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 40px;
+    height: 40px;
+    background-color: #E9FAF1;
+    border: 1px solid #E5E6E8;
+    border-radius: 8px;
+}
+.second-square{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -34,8 +46,16 @@
     border: 1px solid #E5E6E8;
     border-radius: 8px;
 }
-.square p{
+.first-square p{
     color: #212529;
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 25px;
+}
+.second-square p{
+    color: #95939A;
     font-family: 'Open Sans';
     font-style: normal;
     font-weight: 700;
@@ -46,4 +66,14 @@
     width: 174px;
     height: 1px;
     background-color: rgba(185, 180, 196, 0.3);;
+}
+.routes{
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+.titles{
+    width: 400px;
+    display: flex;
+    justify-content: space-between;
 }

@@ -7,7 +7,7 @@ import FinalPage from './components/FinalPage';
 
 
 function App() {
-  const [counter,setCounter] = useState(2)
+  const [counter,setCounter] = useState(0)
 
   return (
     <div>

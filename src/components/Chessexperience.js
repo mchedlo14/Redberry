@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import CheesRightSideTtitle from './CheesRightSideTtitle';
 import './Chessexperience.css'
+import ExperienceRightSideTitle from './ExperienceRightSideTitle';
 import LeftSideTitle from './LeftSideTitle';
 
 const Chessexperience = ({counter,setcounter}) => {
@@ -29,7 +30,7 @@ const Chessexperience = ({counter,setcounter}) => {
   },[])
 
   return (
-    <form className="chess-experience">
+    <div className="chess-experience">
       <div className="chess-experience-image-container">
         <LeftSideTitle />
         <img
@@ -38,7 +39,7 @@ const Chessexperience = ({counter,setcounter}) => {
         />
       </div>
       <div className="chess-experience-right-side">
-        <CheesRightSideTtitle />
+        <ExperienceRightSideTitle />
         <div className="form-title">
           <h2>Chess experience</h2>
           <p>This is basic informaton fields</p>
@@ -75,7 +76,7 @@ const Chessexperience = ({counter,setcounter}) => {
           <button className='next-btn' onClick={() => setcounter(counter + 1)}>Done</button>
         </div>
       </div>
-    </form>
+    </div>
   );
 }
 
