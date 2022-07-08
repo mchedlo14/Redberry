@@ -4,93 +4,112 @@ import LeftSide from './LeftSide'
 import './Personalinformation.css'
 import RightSideTitle from './RightSideTitle'
 import "flatpickr/dist/themes/material_green.css";
-import Flatpickr from "react-flatpickr";
+import { createGlobalState } from 'react-hooks-global-state';
 
-const PersonalInformation = ({counter,setcounter}) => {
+
+
+ const {setGlobalState,useGlobalState} = createGlobalState({
+  name:'',
+  email:'',
+  number:'',
+  date:''
+ })
+
+const errors = {
+  name: {
+    valid: false,
+    title: "Invalid name",
+    description: "Please enter valid name",
+  },
+  email: {
+    valid: false,
+    title: "Invalid email",
+    description: "Please enter valid email"
+  },
+  number: {
+    valid: false,
+    title: "Invalid phone number",
+    description: "Please enter valid phone number"
+  },
+  date: {
+    valid: false,
+    title: "Invalid date entered",
+    description: "Please enter valid date"
+  }
+
+};
+const icons ={
+  name:false,
+  email:false,
+  number:false,
+  date:false,
+}
+const PersonalInformation = ({counter,setcounter,personalInfo}) => {
   const [errData,setErrData] = useState([])
   const [isClear,setIsClear] = useState(false)
-  const [icons,setIcons] = useState({
-    name:false,
-    email:false,
-    number:false,
-    date:false,
-  })
-  const errors = {
-    name: {
-      valid: false,
-      title: "Invalid name",
-      description: "Please enter valid name",
-    },
-    email: {
-      valid: false,
-      title: "Invalid email",
-      description: "Please enter valid email"
-    },
-    number: {
-      valid: false,
-      title: "Invalid phone number",
-      description: "Please enter valid phone number"
-    },
-    date: {
-      valid: false,
-      title: "Invalid date entered",
-      description: "Please enter valid date"
-    }
-  };
+  const [name,setName] = useGlobalState('name')
+  const [email,setEmail] = useGlobalState('email')
+  const [number,setNumber] = useGlobalState('number')
+  const [date,setDate] = useGlobalState('date')
 
   const nameRef = useRef(null)
   const emailRef = useRef(null)
   const numberRef = useRef(null)
   const dateRef = useRef(null)
 
-  const formValidateName= (e) => {
-    if(e.target.value.length > 2){
+
+  useEffect(() => {
+    if(name.length > 2){
       errors.name.valid = true
       icons.name = true
+      personalInfo.name = name
     }else{
       errors.name.valid = false
       icons.name = false
     }
-  }
+  },[name])
 
-  const formValidateEmail = (e) => {
+
+  useEffect(() => {
     const Regex = /^[a-z0-9](.?[a-z0-9]){2,}@redberry.ge$/i;
-    if(Regex.test(e.target.value)){
+    if(Regex.test(email)){
       errors.email.valid = true;
       icons.email = true
+      personalInfo.email = email
     }else{
       errors.email.valid = false;
       icons.email = false
     }
-    
-  }
+  },[email])
 
-  const formValidateNumber = (e) => {
-    if (e.target.value[0] === "5" && e.target.value.length === 9){
+
+  useEffect(() => {
+    if (number[0] === "5" && number.length === 9){
       errors.number.valid = true
       icons.number = true
+      personalInfo.phone = number
     }else{
       errors.number.valid = false
       icons.number = false
     }
-  }
+  },[number])
 
-  const formValidateDate = (e) => {
-    if(e.target.value){
+
+  useEffect(() => {
+    if(date){
       errors.date.valid = true
       icons.date = true
+      personalInfo.date_of_birth = date
     }else{
       errors.date.valid = false
       icons.date = false
     }
-  }
+  },[date])
 
   const validate = () => {
-    
     if(errData.length === 0){
       setcounter(counter + 1);
     }
-
   }
 
 
@@ -102,6 +121,10 @@ const PersonalInformation = ({counter,setcounter}) => {
       }
     })
     setIsClear(true)
+    if(Object.values(errors).length === 0){
+      validate()
+    }
+
   }
 
   useEffect(() => {
@@ -111,8 +134,6 @@ const PersonalInformation = ({counter,setcounter}) => {
       validate()
     }
   },[isClear])
-
-
 
 
   return (
@@ -148,7 +169,8 @@ const PersonalInformation = ({counter,setcounter}) => {
               type="text"
               name="username"
               onFocus={() => (nameRef.current.style.display = "none")}
-              onBlur={(e) => formValidateName(e)}
+              onChange={e => setGlobalState('name',e.target.value)}
+              value={name}
             />
           </div>
 
@@ -166,7 +188,8 @@ const PersonalInformation = ({counter,setcounter}) => {
               type="Email"
               name="email"
               onFocus={() => (emailRef.current.style.display = "none")}
-              onBlur={(e) => formValidateEmail(e)}
+              value={email}
+              onChange={e => setGlobalState('email',e.target.value)}
             />
           </div>
 
@@ -184,25 +207,28 @@ const PersonalInformation = ({counter,setcounter}) => {
               type="number"
               name="number"
               onFocus={() => (numberRef.current.style.display = "none")}
-              onBlur={(e) => formValidateNumber(e)}
+              value={number}
+              onChange={e => setGlobalState('number',e.target.value)}
             />
           </div>
 
           <div>
-            <label ref={dateRef}>
+            {/* <label ref={dateRef}>
               Date of birth <span>*</span>
-            </label>
+            </label> */}
             <img
               className={icons.date ? "valid-icon" : "valid-icon-none"}
               src="/images/check-circle-fill.png"
             />
-            <Flatpickr
+            {/* <Flatpickr
               data-enable-time
               className="input"
               onClick={() => (dateRef.current.style.display = "none")}
               options={{ enableTime: false }}
-              onBlur={(e) => formValidateDate(e)}
-            />
+              value={date}
+              onChange={e => setGlobalState('date',e.target.value)}
+            /> */}
+            <input type='date' className='input' onChange={e => setGlobalState('date',e.target.value)}/>
           </div>
         </form>
 

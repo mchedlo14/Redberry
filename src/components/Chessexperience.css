@@ -28,8 +28,7 @@
 }
 
 .dropdown{
-    width: 390px;
-
+    width: 100%;
 }
 .img-wrapper{
     width: 100px;
@@ -47,6 +46,9 @@
     width: unset;
     position: unset;
     margin: unset;
+}
+.dropdown-container{
+    display: flex;
 }
 .radio-button-title{
     font-family: 'Open Sans';
