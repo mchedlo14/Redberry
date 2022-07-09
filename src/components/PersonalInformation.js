@@ -44,7 +44,7 @@ const icons ={
   number:false,
   date:false,
 }
-const PersonalInformation = ({counter,setcounter,personalInfo}) => {
+const PersonalInformation = ({counter,setcounter,finalInfo}) => {
   const [errData,setErrData] = useState([])
   const [isClear,setIsClear] = useState(false)
   const [name,setName] = useGlobalState('name')
@@ -62,7 +62,8 @@ const PersonalInformation = ({counter,setcounter,personalInfo}) => {
     if(name.length > 2){
       errors.name.valid = true
       icons.name = true
-      personalInfo.name = name
+      finalInfo.name = name
+      nameRef.current.style.display = "none"
     }else{
       errors.name.valid = false
       icons.name = false
@@ -75,7 +76,8 @@ const PersonalInformation = ({counter,setcounter,personalInfo}) => {
     if(Regex.test(email)){
       errors.email.valid = true;
       icons.email = true
-      personalInfo.email = email
+      finalInfo.email = email
+      emailRef.current.style.display = "none"
     }else{
       errors.email.valid = false;
       icons.email = false
@@ -87,7 +89,8 @@ const PersonalInformation = ({counter,setcounter,personalInfo}) => {
     if (number[0] === "5" && number.length === 9){
       errors.number.valid = true
       icons.number = true
-      personalInfo.phone = number
+      finalInfo.phone = number
+      numberRef.current.style.display = 'none'
     }else{
       errors.number.valid = false
       icons.number = false
@@ -99,7 +102,7 @@ const PersonalInformation = ({counter,setcounter,personalInfo}) => {
     if(date){
       errors.date.valid = true
       icons.date = true
-      personalInfo.date_of_birth = date
+      finalInfo.date_of_birth = date
     }else{
       errors.date.valid = false
       icons.date = false
@@ -220,14 +223,6 @@ const PersonalInformation = ({counter,setcounter,personalInfo}) => {
               className={icons.date ? "valid-icon" : "valid-icon-none"}
               src="/images/check-circle-fill.png"
             />
-            {/* <Flatpickr
-              data-enable-time
-              className="input"
-              onClick={() => (dateRef.current.style.display = "none")}
-              options={{ enableTime: false }}
-              value={date}
-              onChange={e => setGlobalState('date',e.target.value)}
-            /> */}
             <input type='date' className='input' onChange={e => setGlobalState('date',e.target.value)}/>
           </div>
         </form>

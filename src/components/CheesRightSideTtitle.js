@@ -5,7 +5,7 @@ const CheesRightSideTtitle = () => {
   return (
     <>
       <div className="start-account-container">
-        <p>First step is done, continue to finish onboarding</p>
+        <p>Almost Done</p>
       </div>
 
       <div className='route-container'>

@@ -2,7 +2,6 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import CheesRightSideTtitle from './CheesRightSideTtitle';
 import './Chessexperience.css'
-import ExperienceRightSideTitle from './ExperienceRightSideTitle';
 import LeftSideTitle from './LeftSideTitle';
 import { createGlobalState } from 'react-hooks-global-state';
 
@@ -14,9 +13,8 @@ const {setGlobalState,useGlobalState} = createGlobalState({
 
 
 
-const Chessexperience = ({counter,setcounter,cheesData,personalInfo}) => {
+const Chessexperience = ({counter,setcounter,finalInfo}) => {
   const [data,setData] = useState([])
-  const [level,setLevel] = useGlobalState('experience_level')
   const levels = [
     {
       label: "Begginer",
@@ -24,25 +22,38 @@ const Chessexperience = ({counter,setcounter,cheesData,personalInfo}) => {
     },
     {
       label: "Intermediate",
-      value: "Intermediate",
+      value: "normal",
     },
     {
       label: "Professional",
       value: "Professional",
     },
-  ]
-  const [prevPageData,setprevPageData] = useState(personalInfo);
-  
+  ]  
 
-  
   useEffect(()=>{
     axios.get('https://chess-tournament-api.devtest.ge/api/grandmasters')
     .then(res => setData(res.data))
   },[])
 
-
   const sendData = () => {
+    axios.post('https://chess-tournament-api.devtest.ge/api/register',finalInfo)
+    .then(res => res)
+    .catch(err => console.log(err))
+
     setcounter(counter + 1)
+  }
+
+
+  const alreadyParticipated = (e) => {
+    const str1 = e.target.value
+    const bool1 = str1 === 'true'
+    finalInfo.already_participated = bool1
+  }
+
+  const notParticipated = (e) => {
+    const str2 = e.target.value
+    const bool2 = str2 === 'false'
+    finalInfo.already_participated = bool2
   }
 
   return (
@@ -55,7 +66,7 @@ const Chessexperience = ({counter,setcounter,cheesData,personalInfo}) => {
         />
       </div>
       <div className="chess-experience-right-side">
-        <ExperienceRightSideTitle />
+        <CheesRightSideTtitle />
         <div className="form-title">
           <h2>Chess experience</h2>
           <p>This is basic informaton fields</p>
@@ -63,15 +74,15 @@ const Chessexperience = ({counter,setcounter,cheesData,personalInfo}) => {
 
 
         <div className='dropdown-container'>
-          <select className='select' onChange={e => {setLevel(e.target.value)}}>
+          <select className='select' onChange={e => {finalInfo.experience_level=e.target.value}}>
             {levels.map(item => <option onChange={e => setGlobalState('experience_level',e.target.value)} value={item.value}>{item.label}</option>)}
           </select>
 
 
           <div className='dropdown'>
-            <select className='select'>
+            <select className='select' onChange={e => finalInfo.character_id = e.target.value}>
               {data.map(item => {
-                return <option>{item.name}</option>
+                return <option value={item.id}>{item.name}</option>
               })}
             </select>
           </div>
@@ -81,8 +92,8 @@ const Chessexperience = ({counter,setcounter,cheesData,personalInfo}) => {
         <div className='radio-button-container'>
           <p className='radio-button-title'>Have you participated in the Redberry Championship? *</p>
           <div className='radio-button-wrapper'>
-            <input type="radio" value={true} onChange={e => cheesData.already_participated = e.target.value} name="participated"/> Yes
-            <input type="radio" value={false} onChange={e => cheesData.already_participated = e.target.value} name="participated"/> No
+            <input type="radio" value={true}  onChange={alreadyParticipated} name="participated"/> Yes
+            <input type="radio" value={false} onChange={notParticipated} name="participated"/> No
           </div>
       </div>
 
