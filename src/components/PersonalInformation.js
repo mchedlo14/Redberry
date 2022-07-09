@@ -56,7 +56,7 @@ const PersonalInformation = ({counter,setcounter,finalInfo}) => {
   const emailRef = useRef(null)
   const numberRef = useRef(null)
   const dateRef = useRef(null)
-
+  
 
   useEffect(() => {
     if(name.length > 2){
@@ -120,13 +120,13 @@ const PersonalInformation = ({counter,setcounter,finalInfo}) => {
     setErrData([])
     Object.values(errors).forEach(item => {
       if(item.valid === false){
-      setErrData(errData => [...errData,{title:item.title,description:item.description}])
+      setErrData(errData => [...errData,{title:item.title,description:item.description}],validate)
       }
     })
     setIsClear(true)
-    if(Object.values(errors).length === 0){
-      validate()
-    }
+    // if(Object.values(errors).length === 0){
+    //   validate()
+    // }
 
   }
 
@@ -136,7 +136,7 @@ const PersonalInformation = ({counter,setcounter,finalInfo}) => {
     }else{
       validate()
     }
-  },[isClear])
+  },[formSubmit])
 
 
   return (
