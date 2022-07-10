@@ -183,7 +183,7 @@ const PersonalInformation = ({counter,setcounter,finalInfo}) => {
               name="username"
               ref={inputNameRef}
               onFocus={() => (nameRef.current.style.display = "none",inputNameRef.current.style.backgroundColor = '#E9ECEF')}
-              onChange={e => setGlobalState('name',e.target.value)}
+              onChange={e => (setGlobalState('name',e.target.value),setName(e.target.value))}
               value={name}
             />
           </div>
@@ -205,7 +205,7 @@ const PersonalInformation = ({counter,setcounter,finalInfo}) => {
               ref={inputEmailRef}
               onFocus={() => (emailRef.current.style.display = "none",inputEmailRef.current.style.backgroundColor = '#E9ECEF')}
               value={email}
-              onChange={e => setGlobalState('email',e.target.value)}
+              onChange={e => (setGlobalState('email',e.target.value),setEmail(e.target.value))}
             />
           </div>
 
@@ -226,7 +226,7 @@ const PersonalInformation = ({counter,setcounter,finalInfo}) => {
               ref={inputNumberRef}
               onFocus={() => (numberRef.current.style.display = "none",inputNumberRef.current.style.backgroundColor = '#E9ECEF')}
               value={number}
-              onChange={e => setGlobalState('number',e.target.value)}
+              onChange={e => (setGlobalState('number',e.target.value),setNumber(e.target.value))}
             />
           </div>
 
@@ -239,7 +239,7 @@ const PersonalInformation = ({counter,setcounter,finalInfo}) => {
               src="/images/check-circle-fill.png"
               alt='success-icon'
             />
-            <input type='date' className='input' value={date} ref={inputDateRef} onChange={e => setGlobalState('date',e.target.value)}/>
+            <input type='date' className='input' value={date} ref={inputDateRef} onChange={e => (setGlobalState('date',e.target.value),setDate(e.target.value))}/>
           </div>
         </form>
 

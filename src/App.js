@@ -17,7 +17,7 @@ function App() {
       :
       counter === 1 ? (<PersonalInformation finalInfo={finalInfo} counter={counter} setcounter={setCounter}/>)
       :
-      counter === 2 ? (<Chessexperience finalInfo={finalInfo} counter={counter} setcounter={setCounter} />)
+      counter === 2 ? (<Chessexperience setFinalInfo={setFinalInfo} finalInfo={finalInfo} counter={counter} setcounter={setCounter} />)
       :
       counter === 3 ? (<FinalPage counter={counter} setcounter={setCounter}/>) : <></>
     }
