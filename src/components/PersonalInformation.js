@@ -7,7 +7,6 @@ import "flatpickr/dist/themes/material_green.css";
 import { createGlobalState } from 'react-hooks-global-state';
 
 
-
  const {setGlobalState,useGlobalState} = createGlobalState({
   name:'',
   email:'',
@@ -56,6 +55,11 @@ const PersonalInformation = ({counter,setcounter,finalInfo}) => {
   const emailRef = useRef(null)
   const numberRef = useRef(null)
   const dateRef = useRef(null)
+  const inputNameRef = useRef(null)
+  const inputEmailRef = useRef(null)
+  const inputNumberRef = useRef(null)
+  const inputDateRef = useRef(null)
+  
   
 
   useEffect(() => {
@@ -64,6 +68,7 @@ const PersonalInformation = ({counter,setcounter,finalInfo}) => {
       icons.name = true
       finalInfo.name = name
       nameRef.current.style.display = "none"
+      inputNameRef.current.style.backgroundColor = 'white'
     }else{
       errors.name.valid = false
       icons.name = false
@@ -78,6 +83,7 @@ const PersonalInformation = ({counter,setcounter,finalInfo}) => {
       icons.email = true
       finalInfo.email = email
       emailRef.current.style.display = "none"
+      inputEmailRef.current.style.backgroundColor = 'white'
     }else{
       errors.email.valid = false;
       icons.email = false
@@ -91,6 +97,7 @@ const PersonalInformation = ({counter,setcounter,finalInfo}) => {
       icons.number = true
       finalInfo.phone = number
       numberRef.current.style.display = 'none'
+      inputNumberRef.current.style.backgroundColor = 'white'
     }else{
       errors.number.valid = false
       icons.number = false
@@ -103,6 +110,12 @@ const PersonalInformation = ({counter,setcounter,finalInfo}) => {
       errors.date.valid = true
       icons.date = true
       finalInfo.date_of_birth = date
+      dateRef.current.style.display = 'none'
+      if(finalInfo.date_of_birth !== ''){
+        inputDateRef.current.style.color = 'black'
+      }else{
+        inputDateRef.current.style.color = 'white'
+      }
     }else{
       errors.date.valid = false
       icons.date = false
@@ -124,10 +137,7 @@ const PersonalInformation = ({counter,setcounter,finalInfo}) => {
       }
     })
     setIsClear(true)
-    // if(Object.values(errors).length === 0){
-    //   validate()
-    // }
-
+    console.log(date)
   }
 
   useEffect(() => {
@@ -171,7 +181,8 @@ const PersonalInformation = ({counter,setcounter,finalInfo}) => {
               className={`input ${icons.name ? "notvalid" : ""}`}
               type="text"
               name="username"
-              onFocus={() => (nameRef.current.style.display = "none")}
+              ref={inputNameRef}
+              onFocus={() => (nameRef.current.style.display = "none",inputNameRef.current.style.backgroundColor = '#E9ECEF')}
               onChange={e => setGlobalState('name',e.target.value)}
               value={name}
             />
@@ -190,7 +201,8 @@ const PersonalInformation = ({counter,setcounter,finalInfo}) => {
               className="input"
               type="Email"
               name="email"
-              onFocus={() => (emailRef.current.style.display = "none")}
+              ref={inputEmailRef}
+              onFocus={() => (emailRef.current.style.display = "none",inputEmailRef.current.style.backgroundColor = '#E9ECEF')}
               value={email}
               onChange={e => setGlobalState('email',e.target.value)}
             />
@@ -209,21 +221,22 @@ const PersonalInformation = ({counter,setcounter,finalInfo}) => {
               className="input"
               type="number"
               name="number"
-              onFocus={() => (numberRef.current.style.display = "none")}
+              ref={inputNumberRef}
+              onFocus={() => (numberRef.current.style.display = "none",inputNumberRef.current.style.backgroundColor = '#E9ECEF')}
               value={number}
               onChange={e => setGlobalState('number',e.target.value)}
             />
           </div>
 
           <div>
-            {/* <label ref={dateRef}>
+            <label ref={dateRef}>
               Date of birth <span>*</span>
-            </label> */}
+            </label>
             <img
               className={icons.date ? "valid-icon" : "valid-icon-none"}
               src="/images/check-circle-fill.png"
             />
-            <input type='date' className='input' onChange={e => setGlobalState('date',e.target.value)}/>
+            <input type='date' className='input' value={date} ref={inputDateRef} onChange={e => setGlobalState('date',e.target.value)}/>
           </div>
         </form>
 

@@ -105,6 +105,16 @@ span{
     border: 1px solid #C2A5F9;
     background-color: #eae7ee;
 }
+::-webkit-calendar-picker-indicator { width: 75%;filter: invert(100%); }
+
+input[type="date"] { 
+    background: white;
+    color: white;
+  }
+  input[type="date"]::-webkit-calendar-picker-indicator {
+    filter: invert(100%);
+    width: 75%;
+  }
 .next-btn{
     width: 128px;
     height: 53px;
@@ -127,3 +137,7 @@ span{
     top: 0px;
     margin-top: 10px;
 }
+
+
+
+  

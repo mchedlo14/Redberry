@@ -18,7 +18,7 @@ const Chessexperience = ({counter,setcounter,finalInfo}) => {
   const levels = [
     {
       label: "Begginer",
-      value: "begginer",
+      value: "beginner",
     },
     {
       label: "Intermediate",
@@ -26,7 +26,7 @@ const Chessexperience = ({counter,setcounter,finalInfo}) => {
     },
     {
       label: "Professional",
-      value: "Professional",
+      value: "professional",
     },
   ]  
 
@@ -75,14 +75,16 @@ const Chessexperience = ({counter,setcounter,finalInfo}) => {
 
         <div className='dropdown-container'>
           <select className='select' onChange={e => {finalInfo.experience_level=e.target.value}}>
-            {levels.map(item => <option onChange={e => setGlobalState('experience_level',e.target.value)} value={item.value}>{item.label}</option>)}
+            <option selected disabled>level of knowledge</option>
+            {levels.map((item,index) => <option key={index} onChange={e => setGlobalState('experience_level',e.target.value)} value={item.value}>{item.label}</option>)}
           </select>
 
 
           <div className='dropdown'>
             <select className='select' onChange={e => finalInfo.character_id = e.target.value}>
-              {data.map(item => {
-                return <option value={item.id}>{item.name}</option>
+            <option selected disabled>Choose Your Character</option>
+              {data.map((item,index) => {
+                return <option key={index} value={item.id}>{item.name}</option>
               })}
             </select>
           </div>
