@@ -63,6 +63,7 @@ const Chessexperience = ({counter,setcounter,finalInfo}) => {
         <img
           className="chess-experience-image"
           src="/images/chess-experience.png"
+          alt='chessimg'
         />
       </div>
       <div className="chess-experience-right-side">

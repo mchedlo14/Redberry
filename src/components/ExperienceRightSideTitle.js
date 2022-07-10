@@ -11,7 +11,7 @@ const ExperienceRightSideTitle = () => {
       <div className="route-container">
         <div className="routes">
           <div className="first-square">
-            <img src='/images/done.png'/>
+            <img src='/images/done.png' alt='done-icon'/>
           </div>
           <div className="horizontal-line"></div>
           <div className="chess-second-square">

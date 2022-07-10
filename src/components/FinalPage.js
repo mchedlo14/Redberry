@@ -7,11 +7,11 @@ const FinalPage = ({counter,setcounter}) => {
     <section className='final-page'>
         <div className='final-left-side'>
             <LeftSideTitle />
-            <img src='/images/finalimage.png' className='final-image'/>
+            <img src='/images/finalimage.png' className='final-image' alt='final-left-image'/>
         </div>
         <div className='final-right-side'>
 
-                <img src='/images/rocket.png'/>
+                <img src='/images/rocket.png' alt='rocket'/>
                 <p className='final-text'>Onboarding completed!</p>
         </div>
     </section>

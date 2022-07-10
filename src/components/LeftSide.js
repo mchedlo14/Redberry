@@ -7,7 +7,7 @@ const LeftSide = () => {
     <section className='left-side'>
       <LeftSideTitle />
       <div className='image-container'>
-        <img src='/images/pinformation-image.png' className='image'/>
+        <img src='/images/pinformation-image.png' className='image' alt='left-side-img'/>
       </div>
       <div className='text-container'>
         <p className='image-text'>“When you see a good move,<br></br>look for a better one.”</p>

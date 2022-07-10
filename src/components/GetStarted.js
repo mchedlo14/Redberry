@@ -10,7 +10,7 @@ const GetStarted = ({setcounter,counter}) => {
     <section className='started-page'>
         <div className='getstarted-image-container'>
             <LeftSideTitle />
-            <img src='/images/startedpage.png' />
+            <img src='/images/startedpage.png' alt='start-img'/>
         </div>
         <div className='who-we-are-container'>
             <div className='get-started-container'>

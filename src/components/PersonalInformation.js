@@ -174,6 +174,7 @@ const PersonalInformation = ({counter,setcounter,finalInfo}) => {
             <img
               className={icons.name ? "valid-icon" : "valid-icon-none"}
               src="/images/check-circle-fill.png"
+              alt='success-icon'
             />
             <input
               required
@@ -194,6 +195,7 @@ const PersonalInformation = ({counter,setcounter,finalInfo}) => {
             <img
               className={icons.email ? "valid-icon" : "valid-icon-none"}
               src="/images/check-circle-fill.png"
+              alt='success-icon'
             />
             <input
               required
@@ -214,6 +216,7 @@ const PersonalInformation = ({counter,setcounter,finalInfo}) => {
             <img
               className={icons.number ? "valid-icon" : "valid-icon-none"}
               src="/images/check-circle-fill.png"
+              alt='success-icon'
             />
             <input
               required
@@ -234,6 +237,7 @@ const PersonalInformation = ({counter,setcounter,finalInfo}) => {
             <img
               className={icons.date ? "valid-icon" : "valid-icon-none"}
               src="/images/check-circle-fill.png"
+              alt='success-icon'
             />
             <input type='date' className='input' value={date} ref={inputDateRef} onChange={e => setGlobalState('date',e.target.value)}/>
           </div>
@@ -244,7 +248,7 @@ const PersonalInformation = ({counter,setcounter,finalInfo}) => {
             Back
           </button>
           <button className="next-btn" onClick={formSubmit}>
-            Next <img src="/images/right-arrow.png" />
+            Next <img src="/images/right-arrow.png" alt='right-arrow'/>
           </button>
         </div>
       </div>
