@@ -26,7 +26,13 @@
     padding: 46px;
     margin-top: 200px;
 }
-
+option{
+    font-family: 'Open Sans';
+font-style: normal;
+font-weight: 400;
+font-size: 20px;
+line-height: 150%;
+}
 .dropdown{
     width: 100%;
 }

@@ -3,7 +3,6 @@ import ErrorsComp from './ErrorsComp'
 import LeftSide from './LeftSide'
 import './Personalinformation.css'
 import RightSideTitle from './RightSideTitle'
-import "flatpickr/dist/themes/material_green.css";
 import { createGlobalState } from 'react-hooks-global-state';
 
 
@@ -137,7 +136,8 @@ const PersonalInformation = ({counter,setcounter,finalInfo}) => {
       }
     })
     setIsClear(true)
-    console.log(date)
+    
+
   }
 
   useEffect(() => {
@@ -147,7 +147,6 @@ const PersonalInformation = ({counter,setcounter,finalInfo}) => {
       validate()
     }
   },[formSubmit])
-
 
   return (
     <div className="personal-information">

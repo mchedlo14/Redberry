@@ -105,11 +105,11 @@ span{
     border: 1px solid #C2A5F9;
     background-color: #eae7ee;
 }
-::-webkit-calendar-picker-indicator { width: 75%;filter: invert(100%); }
+
 
 input[type="date"] { 
     background: white;
-    color: white;
+    color: transparent;
   }
   input[type="date"]::-webkit-calendar-picker-indicator {
     filter: invert(100%);
