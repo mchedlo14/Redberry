@@ -38,7 +38,7 @@ const Chessexperience = ({counter,setcounter,finalInfo}) => {
   const sendData = () => {
     axios.post('https://chess-tournament-api.devtest.ge/api/register',finalInfo)
     .then(res => res)
-    .catch(err => console.log(err))
+    .catch(err => console.log('something wrong res =>',err))
 
     setcounter(counter + 1)
   }
