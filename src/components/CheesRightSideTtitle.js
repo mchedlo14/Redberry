@@ -11,7 +11,7 @@ const CheesRightSideTtitle = () => {
       <div className='route-container'>
         <div className='routes'>
             <div className="first-square">
-              <p>1</p>
+            <img src='/images/done.png'/>
             </div>
             <div className="horizontal-line"></div>
             <div className="second-square">
