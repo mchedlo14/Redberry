@@ -1,10 +1,11 @@
 .chess-experience{
     width: 100%;
     display: flex;
+    background-color: whitesmoke;
 }
 .chess-experience-image{
     width: 100%;
-    height: 921px;
+    height: 1080px;
 }
 
 .chess-experience-image-container{
@@ -12,6 +13,7 @@
 }
 .chess-experience-right-side{
     width: 50%;
+    height: 1080px;
     background-color: whitesmoke;
 }
 .select{
@@ -55,6 +57,7 @@ line-height: 150%;
 }
 .dropdown-container{
     display: flex;
+    gap: 10px;
 }
 .radio-button-title{
     font-family: 'Open Sans';
@@ -67,9 +70,47 @@ line-height: 150%;
 .radio-button-container{
     margin-left: 48px;
     margin-top: 80px;
+    z-index: 10;
 }
 .radio-button-wrapper{
     margin-top: 10px;
     display: flex;
     gap: 10px;
+}
+.dropdowncontainer{
+    width: 350px;
+    height: auto;
+    margin-top: 95px;
+    background-color: white;
+}
+.dropdown-btn{
+    width: 100%;
+    height: 46px;
+    padding: 10px;
+    border: 1px solid rgb(104, 104, 104);
+    border-radius: 2px;
+    justify-content: space-between;
+}
+
+.content{
+    width: 100%;
+    display: flex;
+    background-color: white;
+    justify-content: space-between;
+    padding: 5px;
+    position: relative;
+    align-items: center;
+    z-index: 1;
+}
+.content:hover{
+    background-color: rgb(219, 217, 217);
+}
+.characterimage{
+    width: 60px;
+    height: 60px;
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }

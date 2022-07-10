@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import CheesRightSideTtitle from './CheesRightSideTtitle';
 import './Chessexperience.css'
 import LeftSideTitle from './LeftSideTitle';
@@ -15,6 +15,7 @@ const {setGlobalState,useGlobalState} = createGlobalState({
 
 const Chessexperience = ({counter,setcounter,finalInfo}) => {
   const [data,setData] = useState([])
+  const [isActive,setIsActive] = useState(false)
   const levels = [
     {
       label: "Begginer",
@@ -30,6 +31,8 @@ const Chessexperience = ({counter,setcounter,finalInfo}) => {
     },
   ]  
 
+  const dropdownRef = useRef(null)
+
   useEffect(()=>{
     axios.get('https://chess-tournament-api.devtest.ge/api/grandmasters')
     .then(res => setData(res.data))
@@ -39,7 +42,6 @@ const Chessexperience = ({counter,setcounter,finalInfo}) => {
     axios.post('https://chess-tournament-api.devtest.ge/api/register',finalInfo)
     .then(res => res)
     .catch(err => console.log('something wrong res =>',err))
-
     setcounter(counter + 1)
   }
 
@@ -80,14 +82,34 @@ const Chessexperience = ({counter,setcounter,finalInfo}) => {
             {levels.map((item,index) => <option key={index} onChange={e => setGlobalState('experience_level',e.target.value)} value={item.value}>{item.label}</option>)}
           </select>
 
-
-          <div className='dropdown'>
-            <select className='select' onChange={e => finalInfo.character_id = e.target.value}>
-            <option selected disabled>Choose Your Character</option>
-              {data.map((item,index) => {
-                return <option key={index} value={item.id}>{item.name}</option>
-              })}
-            </select>
+          <div className='dropdowncontainer'>
+            <div className='dropdown-btn' ref={dropdownRef} onClick={e => setIsActive(!isActive)}>Choose Your Character </div>
+            {isActive && (
+                        data.map((item,index) => {
+                          return (
+                            <div key={index} className="content-container">
+                              <div
+                                className="content"
+                                onClick={(e) => (
+                                  (finalInfo.character_id = item.id),
+                                  (dropdownRef.current.textContent = item.name),
+                                  setIsActive(false)
+                                )}
+                              >
+                                <p>{item.name}</p>
+                                <img
+                                  className="characterimage"
+                                  src={
+                                    `https://chess-tournament-api.devtest.ge` +
+                                    item.image
+                                  }
+                                  alt="player image"
+                                />
+                              </div>
+                            </div>
+                          );
+                        })
+            )}
           </div>
 
         </div>
@@ -98,7 +120,7 @@ const Chessexperience = ({counter,setcounter,finalInfo}) => {
             <input type="radio" value={true}  onChange={alreadyParticipated} name="participated"/> Yes
             <input type="radio" value={false} onChange={notParticipated} name="participated"/> No
           </div>
-      </div>
+        </div>
 
         <div className='chees-buttons-container'>
           <button className='back-btn' onClick={() => setcounter(counter - 1)}>Back</button>
